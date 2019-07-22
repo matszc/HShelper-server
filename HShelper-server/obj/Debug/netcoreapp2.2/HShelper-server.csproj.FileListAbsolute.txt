@@ -1,0 +1,11 @@
+C:\Users\Mateusz\Desktop\HShelper-server\HShelper-server\bin\Debug\netcoreapp2.2\HShelper-server.deps.json
+C:\Users\Mateusz\Desktop\HShelper-server\HShelper-server\bin\Debug\netcoreapp2.2\HShelper-server.runtimeconfig.json
+C:\Users\Mateusz\Desktop\HShelper-server\HShelper-server\bin\Debug\netcoreapp2.2\HShelper-server.runtimeconfig.dev.json
+C:\Users\Mateusz\Desktop\HShelper-server\HShelper-server\bin\Debug\netcoreapp2.2\HShelper-server.dll
+C:\Users\Mateusz\Desktop\HShelper-server\HShelper-server\obj\Debug\netcoreapp2.2\HShelper-server.csprojAssemblyReference.cache
+C:\Users\Mateusz\Desktop\HShelper-server\HShelper-server\obj\Debug\netcoreapp2.2\HShelper-server.csproj.CoreCompileInputs.cache
+C:\Users\Mateusz\Desktop\HShelper-server\HShelper-server\obj\Debug\netcoreapp2.2\HShelper-server.RazorAssemblyInfo.cache
+C:\Users\Mateusz\Desktop\HShelper-server\HShelper-server\obj\Debug\netcoreapp2.2\HShelper-server.RazorAssemblyInfo.cs
+C:\Users\Mateusz\Desktop\HShelper-server\HShelper-server\obj\Debug\netcoreapp2.2\HShelper-server.AssemblyInfoInputs.cache
+C:\Users\Mateusz\Desktop\HShelper-server\HShelper-server\obj\Debug\netcoreapp2.2\HShelper-server.AssemblyInfo.cs
+C:\Users\Mateusz\Desktop\HShelper-server\HShelper-server\obj\Debug\netcoreapp2.2\HShelper-server.RazorTargetAssemblyInfo.cache
