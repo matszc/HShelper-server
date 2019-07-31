@@ -37,5 +37,27 @@ namespace HShelper_server.Services
 
             return result;
         }
+        public Lobby GetSingleLobby(string id)
+        {
+            try
+            {
+                return _lobby.Find(lobby => lobby.id == id && lobby.status == "pending").Single();
+            }
+            catch(Exception)
+            {
+                return null;
+            }
+        }
+        public List<Lobby> GetAllLobby()
+        {
+            try
+            {
+                return _lobby.Find(lobby => lobby.status == "pending").ToList();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

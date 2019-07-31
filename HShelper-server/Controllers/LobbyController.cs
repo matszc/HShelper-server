@@ -24,11 +24,25 @@ namespace HShelper_server.Controllers
             var result = _lobbyService.createLobby(config);
             var resultCode = true;
             if (result == null)
-                 return StatusCode(408);
+                return StatusCode(408);
             else
             {
                 return result;
             }
+        }
+        //GET /api/lobby
+        [HttpGet]
+        public ActionResult<List<Lobby>> GetLobbyList()
+        {
+            var result = _lobbyService.GetAllLobby();
+            return result;
+        }
+        //GET /api/lobby/id
+        [HttpGet("{id}")]
+        public ActionResult<Lobby> GetLobby(string id)
+        {
+            var result = _lobbyService.GetSingleLobby(id);
+            return result;
         }
     }
 }
