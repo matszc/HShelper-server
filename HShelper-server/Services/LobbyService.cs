@@ -22,10 +22,12 @@ namespace HShelper_server.Services
                 id = Guid.NewGuid().ToString().Substring(0,8),
                 config = config.config,
                 status = "pending",
-                players = new List<string> { },
+                players = new List<Player> { },
                 creationDate = DateTime.Now.ToLocalTime()
             };
-            result.players.Add(config.player);
+            result.players.Add(new Player {
+                btag = config.player
+            });
             try
             {
                 _lobby.InsertOne(result);

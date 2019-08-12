@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HShelper_server.HubConfig;
 using HShelper_server.Models;
 using HShelper_server.Services;
 using Microsoft.AspNetCore.Builder;
@@ -45,6 +46,7 @@ namespace HShelper_server
                         .AllowAnyMethod();
                     });
             });
+            services.AddSignalR();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -62,6 +64,10 @@ namespace HShelper_server
             }
             app.UseCors(MyAllowSpecificOrigins);
             app.UseHttpsRedirection();
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<LobbyHub>("/lobby");
+            });
             app.UseMvc();
         }
     }

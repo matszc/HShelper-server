@@ -13,7 +13,7 @@ namespace HShelper_server.Models
         public ObjectId _id { get; set; }
         public string id { get; set; }
         public ConfigLobby config { get; set; }
-        public List<string> players { get; set; }
+        public List<Player> players { get; set; }
         public string status { get; set; }
         public DateTime creationDate { get; set; }
     }

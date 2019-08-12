@@ -17,7 +17,7 @@ namespace HShelper_server.Services
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.Database);
-            _cards = database.GetCollection<Card>("cards.collectible");
+            _cards = database.GetCollection<Card>("cards.collectible.uldum");
         }
 
         public List<Card> Get()
