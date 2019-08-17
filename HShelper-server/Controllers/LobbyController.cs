@@ -19,29 +19,31 @@ namespace HShelper_server.Controllers
         }
         //POST /api/lobby
         [HttpPost]
-        public ActionResult<Lobby> CreateLobby([FromBody] ConfigData config)
+        public async Task<ActionResult<Lobby>> CreateLobbyAsync([FromBody] ConfigData config)
         {
-            var result = _lobbyService.createLobby(config);
-            var resultCode = true;
+            var result = await _lobbyService.CreateLobbyAsync(config);
             if (result == null)
                 return StatusCode(408);
-            else
-            {
-                return result;
-            }
+            return result;
         }
         //GET /api/lobby
         [HttpGet]
-        public ActionResult<List<Lobby>> GetLobbyList()
+        public async Task<ActionResult<List<Lobby>>> GetLobbyListAsync()
         {
-            var result = _lobbyService.GetAllLobby();
+            var result = await _lobbyService.GetAllLobbyAsync();
+            if (result == null)
+                return StatusCode(404);
             return result;
         }
         //GET /api/lobby/id
         [HttpGet("{id}")]
-        public ActionResult<Lobby> GetLobby(string id)
+        public async Task<ActionResult<Lobby>> GetLobbyAsync(string id)
         {
-            var result = _lobbyService.GetSingleLobby(id);
+            var result = await _lobbyService.GetSingleLobbyAsync(id);
+            if(result == null)
+            {
+                return StatusCode(404);
+            }
             return result;
         }
     }

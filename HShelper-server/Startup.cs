@@ -43,7 +43,8 @@ namespace HShelper_server
                     {
                         builder.WithOrigins("http://localhost:4200")
                         .AllowAnyHeader()
-                        .AllowAnyMethod();
+                        .AllowAnyMethod()
+                        .AllowCredentials();
                     });
             });
             services.AddSignalR();
@@ -66,7 +67,7 @@ namespace HShelper_server
             app.UseHttpsRedirection();
             app.UseSignalR(routes =>
             {
-                routes.MapHub<LobbyHub>("/lobby");
+                routes.MapHub<LobbyHub>("/lobbyHub");
             });
             app.UseMvc();
         }

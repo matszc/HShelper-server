@@ -20,7 +20,7 @@ namespace HShelper_server.Controllers
 
         //GET /api/cards
         [HttpGet]
-        public ActionResult<List<Card>> Get() =>
-            _cardService.Get();
+        public async Task<ActionResult<List<Card>>> GetAsync() =>
+            await _cardService.GetAsync();
     }
 }

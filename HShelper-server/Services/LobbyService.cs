@@ -16,7 +16,7 @@ namespace HShelper_server.Services
             var database = client.GetDatabase(settings.Database);
             _lobby = database.GetCollection<Lobby>("lobby");
         }
-        public Lobby createLobby(ConfigData config)
+        public async Task<Lobby> CreateLobbyAsync(ConfigData config)
         {
             var result = new Lobby {
                 id = Guid.NewGuid().ToString().Substring(0,8),
@@ -28,35 +28,25 @@ namespace HShelper_server.Services
             result.players.Add(new Player {
                 btag = config.player
             });
-            try
-            {
-                _lobby.InsertOne(result);
-            }
-            catch (Exception)
-            {
-                return null;
-            }
+               await _lobby.InsertOneAsync(result);
 
             return result;
         }
-        public Lobby GetSingleLobby(string id)
+        public async Task<Lobby> GetSingleLobbyAsync(string id)
         {
-            try
-            {
-                return _lobby.Find(lobby => lobby.id == id && lobby.status == "pending").Single();
-            }
-            catch(Exception)
-            {
-                return null;
-            }
+            return await _lobby.Find(lobby => lobby.id == id).SingleOrDefaultAsync();
         }
-        public List<Lobby> GetAllLobby()
+        public async Task<List<Lobby>> GetAllLobbyAsync()
+        {
+            return await _lobby.Find(lobby => lobby.status == "pending").ToListAsync();
+        }
+        public async Task<Lobby> UpdateLobbyAsync(Lobby lobby)
         {
             try
             {
-                return _lobby.Find(lobby => lobby.status == "pending").ToList();
+                return await _lobby.FindOneAndReplaceAsync(l => l.id == lobby.id, lobby);
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 throw e;
             }

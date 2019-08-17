@@ -4,3 +4,5 @@
 
 /.vs/HShelper-server/config
 /.vs/HShelper-server
+/bin
+/obj

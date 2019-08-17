@@ -10,13 +10,23 @@ namespace HShelper_server.Models
     public class Lobby
     {
         [BsonId]
-        public ObjectId _id { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string _id { get; set; }
         public string id { get; set; }
         public ConfigLobby config { get; set; }
         public List<Player> players { get; set; }
         public string status { get; set; }
         public DateTime creationDate { get; set; }
     }
+    //public class Lobby1
+    //{
+    //    public string _id { get; set; }
+    //    public string id { get; set; }
+    //    public ConfigLobby config { get; set; }
+    //    public List<Player> players { get; set; }
+    //    public string status { get; set; }
+    //    public DateTime creationDate { get; set; }
+    //}
     public class ConfigLobby
     {
         public string type { get; set; }

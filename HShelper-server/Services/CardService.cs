@@ -20,16 +20,10 @@ namespace HShelper_server.Services
             _cards = database.GetCollection<Card>("cards.collectible.uldum");
         }
 
-        public List<Card> Get()
+        public async Task<List<Card>> GetAsync()
         {
-            try
-            {
-                return _cards.Find(card => card.collectible == true).ToList();
-            }
-            catch
-            {
-                throw new Exception("Can't load resource");
-            }
+                return await _cards.Find(card => card.collectible == true).ToListAsync();
+         
         }
     }
 }
