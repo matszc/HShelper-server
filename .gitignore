@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/HShelper-server/config
+/.vs/HShelper-server
+/bin
+/obj
